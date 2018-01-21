@@ -27,12 +27,14 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     thread.cpp \
-    movetothreadtest.cpp
+    movetothreadtest.cpp \
+    corecurrent_run.cpp
 
 HEADERS += \
         mainwindow.h \
     thread.h \
-    movetothreadtest.h
+    movetothreadtest.h \
+    corecurrent_run.h
 
 FORMS += \
         mainwindow.ui

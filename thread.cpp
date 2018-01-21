@@ -4,7 +4,7 @@ Thread::Thread(QObject *parent) : QThread(parent)
 {
     connect(this, &Thread::sig, this, &Thread::onSig);
     m_isPrint = false;
-    qDebug() << "parent Thread ID:" << QThread::currentThreadId();
+    qDebug() << "QThread parent Thread ID:" << QThread::currentThreadId();
 }
 
 void Thread::onSig()

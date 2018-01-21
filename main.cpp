@@ -2,6 +2,7 @@
 #include <QApplication>
 #include "thread.h"
 #include "movetothreadtest.h"
+#include "corecurrent_run.h"
 
 int main(int argc, char *argv[])
 {
@@ -14,6 +15,9 @@ int main(int argc, char *argv[])
 
     moveToThreadTest _thread;
     QObject::connect(&thread, &Thread::sig, &_thread, &moveToThreadTest::onSig);
+
+    corecurrent_run cr;
+    cr.start();
 
     return a.exec();
 }
