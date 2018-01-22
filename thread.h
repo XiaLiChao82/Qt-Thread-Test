@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QThread>
 #include <QDebug>
+#include <QList>
 
 class Thread : public QThread
 {
@@ -22,6 +23,7 @@ public slots:
 
 private:
     bool m_isPrint;
+    QList<QString> m_list;
 };
 
 #endif // THREAD_H

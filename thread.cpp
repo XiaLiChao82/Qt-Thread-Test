@@ -4,6 +4,7 @@ Thread::Thread(QObject *parent) : QThread(parent)
 {
     connect(this, &Thread::sig, this, &Thread::onSig);
     m_isPrint = false;
+    m_list.clear();
     qDebug() << "QThread parent Thread ID:" << QThread::currentThreadId();
 }
 
@@ -15,6 +16,10 @@ void Thread::onSig()
 void Thread::onPrintCurrentThreadID()
 {
     qDebug() << "current Thread ID:" << QThread::currentThreadId();
+    if(!m_list.isEmpty())
+    {
+        qDebug() << "get list first value:" << m_list.takeFirst();
+    }
 }
 
 void Thread::run()
@@ -24,7 +29,9 @@ void Thread::run()
     {
         if(!m_isPrint)
         {
-            onSig();
+//            onSig();
+            m_list.append(QString("test"));
+//            connect(this, &Thread::sig, this, &Thread::onSig, Qt::DirectConnection);
             emit sig();
             m_isPrint = true;
         }
