@@ -18,6 +18,9 @@ public slots:
     void start();
     void onSig1();
     void onSig2();
+
+public:
+    static void onSig3(int n);
 };
 
 #endif // CORECURRENT_RUN_H

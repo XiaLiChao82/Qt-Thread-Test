@@ -28,6 +28,8 @@ void corecurrent_run::start()
 //    QtConcurrent::run(this, &corecurrent_run::onSig2);
     emit sig1();
     emit sig2();
+
+    QtConcurrent::run(onSig3, 3);
 }
 
 void corecurrent_run::onSig1()
@@ -38,4 +40,9 @@ void corecurrent_run::onSig1()
 void corecurrent_run::onSig2()
 {
     qDebug() << "sig2 thread id:" << QThread::currentThreadId();
+}
+
+void corecurrent_run::onSig3(int n)
+{
+    qDebug() << "sig3 thread id:" << QThread::currentThreadId() << ", args:" << n;
 }
