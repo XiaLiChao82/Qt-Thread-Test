@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QtConcurrent/QtConcurrent>
+#include <QThreadPool>
 
 class corecurrent_run : public QObject
 {
@@ -13,6 +14,7 @@ public:
 signals:
     void sig1();
     void sig2();
+    void testLoop();
 
 public slots:
     void start();
@@ -20,7 +22,11 @@ public slots:
     void onSig2();
 
 public:
-    static void onSig3(int n);
+    void onSig3(int n);
+    QTimer *m_timer;
+    int m_count;
+    int m_sum;
+    QThreadPool *m_threadPool;
 };
 
 #endif // CORECURRENT_RUN_H

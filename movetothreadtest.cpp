@@ -4,7 +4,7 @@ moveToThreadTest::moveToThreadTest(QObject *parent) : QObject(parent)
 {
     QTimer *timer = new QTimer(this);
 
-    timer->start(1000);
+    timer->start(3000);
 
     m_thread.start();
     this->moveToThread(&m_thread);

@@ -20,6 +20,7 @@ signals:
 public slots:
     void onSig();
     void onPrintCurrentThreadID();
+    void onTestThreadPool();
 
 private:
     bool m_isPrint;

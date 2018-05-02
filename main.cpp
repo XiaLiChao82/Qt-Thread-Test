@@ -48,6 +48,9 @@ int main(int argc, char *argv[])
     corecurrent_run cr;
     cr.start();
 
+    QThreadPool pool;
+    QtConcurrent::run(&pool, &thread, &Thread::onTestThreadPool);
+
 //    struct timeval tpstart,tpend;
 //    float timeuse;
 //    gettimeofday(&tpstart,NULL);

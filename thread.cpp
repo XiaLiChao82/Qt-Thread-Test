@@ -32,8 +32,14 @@ void Thread::run()
 //            onSig();
             m_list.append(QString("test"));
 //            connect(this, &Thread::sig, this, &Thread::onSig, Qt::DirectConnection);
-            emit sig();
+//            emit sig();
             m_isPrint = true;
         }
     }
+}
+
+void Thread::onTestThreadPool()
+{
+    qDebug() << "thread pool start, thread id:" << QThread::currentThreadId();
+    emit sig();
 }
